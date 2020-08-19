@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "968823960878",
+    "firebase_url": "https://soil-info.firebaseio.com",
+    "project_id": "soil-info",
+    "storage_bucket": "soil-info.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968823960878:android:229071d0962d8a79a0b6bf",
+        "android_client_info": {
+          "package_name": "com.ampaschal.soilinfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968823960878-mk833bp2in0g48emt46o30r069cgvkhv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ampaschal.soilinfo",
+            "certificate_hash": "67ce19b63000fd689b6995d2cf02f67ecf366471"
+          }
+        },
+        {
+          "client_id": "968823960878-o5dgmppc5khni2ieo3ushiegssmualmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHq0oPVj_vt1dLyomRfhMgl4ADf2XjMuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968823960878-o5dgmppc5khni2ieo3ushiegssmualmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
