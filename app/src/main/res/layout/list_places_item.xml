@@ -6,22 +6,18 @@
     android:layout_marginTop="4dp"
     android:background="@drawable/bg_list_item"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:weightSum="100">
+    android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="0dp"
+        android:layout_width="37dp"
         android:layout_height="37dp"
-        android:layout_weight="10"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
         android:src="@drawable/ic_place"/>
-    
+
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="90"
-        android:layout_marginEnd="17dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -29,9 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Oroma-Etiti 1"
-            android:textSize="15sp"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
             android:fontFamily="@font/poppins"
-            android:textColor="@color/colorTextRecent"/>
+            android:textColor="@color/colorTextTitle"/>
 
         <TextView
             android:id="@+id/tv_cities_place"
@@ -39,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Yaba, Lagos"
             android:layout_gravity="center_vertical"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:fontFamily="@font/poppins"
             android:textColor="@color/colorHint"/>
 

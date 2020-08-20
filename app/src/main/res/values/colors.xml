@@ -11,4 +11,5 @@
     <color name="colorTextTitle">#3E4958</color>
     <color name="colorGreen">#00CC99</color>
     <color name="colorTextRecent">#2C2C2C</color>
+    <color name="colorTextPlaces">#383838</color>
 </resources>
