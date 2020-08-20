@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/tvPlaces"
+        android:id="@+id/tv_places"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -40,13 +40,13 @@
         app:layout_constraintTop_toBottomOf="@+id/et_search" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_recent"
+        android:id="@+id/list_places"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@id/tvPlaces"
+        app:layout_constraintTop_toBottomOf="@id/tv_places"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/list_recent_places_item"/>
+        tools:listitem="@layout/list_places_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
