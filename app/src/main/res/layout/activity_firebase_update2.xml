@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:orientation="vertical"
+    tools:context=".ui.FirebaseUpdateActivity2">
+
+    <TextView
+        android:id="@+id/tv_data_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="22dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Input Data"
+        android:textColor="@color/colorTextPlaces"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Layout Entered"
+        android:paddingEnd="10dp"
+        android:layout_toStartOf="@id/tv_layer_item"
+        android:layout_above="@id/scrollview"/>
+
+    <TextView
+        android:id="@+id/tv_layer_item"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/scrollview"
+        android:layout_above="@id/scrollview"/>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_data_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:hint="VES No. and Name"
+                android:padding="20dp"
+                android:textColorHint="@color/colorHint" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:hint="Layer"
+                android:inputType="number"
+                android:padding="20dp"
+                android:textColorHint="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:hint="App. Res. (Ohm-m)"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColorHint="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:hint="Thickness (m)"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColorHint="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:hint="Depth (m)"
+                android:inputType="numberDecimal"
+                android:padding="20dp"
+                android:textColorHint="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:hint="Description"
+                android:padding="20dp"
+                android:textColorHint="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp">
+
+                <Button
+                    android:id="@+id/bt_next_layer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button"
+                    android:text="Enter Another Layer"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/bt_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button"
+                    android:text="Submit"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"
+                    android:padding="10dp"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
