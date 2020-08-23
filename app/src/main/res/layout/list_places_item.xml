@@ -23,15 +23,15 @@
         <TextView
             android:id="@+id/tv_place"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Oroma-Etiti 1"
+            android:layout_height="21dp"
             android:layout_gravity="center_vertical"
-            android:textSize="18sp"
             android:fontFamily="@font/poppins"
-            android:textColor="@color/colorTextTitle"/>
+            android:text="Oroma-Etiti 1"
+            android:textColor="@color/colorTextTitle"
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_cities_place"
+            android:id="@+id/tv_city_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yaba, Lagos"
