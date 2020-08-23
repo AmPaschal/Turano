@@ -1,19 +1,14 @@
 package com.ampaschal.soilinfo.ui
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.ampaschal.soilinfo.MainViewModel
-
 import com.ampaschal.soilinfo.R
 import com.ampaschal.soilinfo.databinding.FragmentDashboardBinding
-import com.ampaschal.soilinfo.entities.Place
-import com.ampaschal.soilinfo.entities.SoilLayer
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
@@ -33,9 +28,9 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         val dashboardBinding = FragmentDashboardBinding.inflate(inflater, container, false)
 
-        dashboardBinding.tvWelcome.setOnClickListener {
-            val intent = Intent(activity, AddPlaceActivity::class.java)
-            startActivity(intent)
+
+        dashboardBinding.tvViewPlaces.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_placesFragment)
         }
 
         return dashboardBinding.root

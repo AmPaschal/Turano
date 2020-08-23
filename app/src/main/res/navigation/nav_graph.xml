@@ -9,5 +9,14 @@
         android:id="@+id/dashboardFragment"
         android:name="com.ampaschal.soilinfo.ui.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_placesFragment"
+            app:destination="@id/placesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placesFragment"
+        android:name="com.ampaschal.soilinfo.ui.PlacesFragment"
+        android:label="fragment_places"
+        tools:layout="@layout/fragment_places" />
 </navigation>

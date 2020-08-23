@@ -9,17 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ampaschal.soilinfo.entities.Place;
+import com.ampaschal.soilinfo.data.PlaceSummary;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewHolder> {
 
-    ArrayList<Place> places;
+    List<PlaceSummary> places;
 
-    public PlacesAdapter(ArrayList<Place> places) {
-        this.places = places;
-    }
+    public PlacesAdapter() {}
 
     @NonNull
     @Override
@@ -32,29 +30,34 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
 
     @Override
     public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
-        Place place = places.get(position);
+        PlaceSummary place = places.get(position);
         holder.bind(place);
     }
 
     @Override
     public int getItemCount() {
-        return places.size();
+        return places != null ? places.size() : 0;
+    }
+
+    public void setData(List<PlaceSummary> places) {
+        this.places = places;
+        notifyDataSetChanged();
     }
 
 
-    public class PlaceViewHolder extends RecyclerView.ViewHolder{
+    public static class PlaceViewHolder extends RecyclerView.ViewHolder{
         TextView tvPlace;
         TextView tvCity;
 
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvPlace = (TextView) itemView.findViewById(R.id.tv_place);
-            tvCity = (TextView) itemView.findViewById(R.id.tv_city_place) ;
+            tvPlace = itemView.findViewById(R.id.tv_place_name);
+            tvCity = itemView.findViewById(R.id.tv_place_type);
         }
 
-        public void bind(Place place){
+        public void bind(PlaceSummary place){
             tvPlace.setText(place.getName());
-            tvCity.setText(place.getName());
+            tvCity.setText(place.getType());
         }
 
     }

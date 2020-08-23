@@ -4,7 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ampaschal.soilinfo.entities.Place
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class DefaultPlacesRepository: PlacesRepository {
 
@@ -14,19 +17,23 @@ class DefaultPlacesRepository: PlacesRepository {
     val placesList: LiveData<List<PlaceSummary>> = _placesList
 
     init {
-        //getAllPlaces()
+        getAllPlaces()
+    }
+
+    override fun getPlacesList(): MutableLiveData<List<PlaceSummary>> {
+        return _placesList
     }
 
     private fun getAllPlaces() {
-        val placesRef = database.getReference("places")
-        placesRef.addValueEventListener(object : ValueEventListener{
+
+        placesRef.child("titles").addValueEventListener(object : ValueEventListener{
             override fun onCancelled(databaseError: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val places = dataSnapshot.children.map { snapShot: DataSnapshot -> snapShot.value as PlaceSummary }
-                _placesList.value = places
+                val places = dataSnapshot.children.map { snapShot: DataSnapshot -> snapShot.getValue(PlaceSummary::class.java) }
+                _placesList.value = places.filterNotNull()
             }
 
         })

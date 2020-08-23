@@ -1,57 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    tools:context=".ui.PlacesFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/et_search"
+    <data>
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/bg_search"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="14dp"
-        android:hint="@string/search_by_location"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textColorHint="@color/colorHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_places"
-        android:layout_width="104dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="330dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:text="Places"
-        android:textColor="@color/colorTextPlaces"
-        android:textSize="30sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_search" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            tools:context=".ui.PlacesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_places"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="7dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_places"
-        tools:listitem="@layout/list_places_item" />
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/bg_search"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="14dp"
+                android:hint="@string/search_by_location"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColorHint="@color/colorHint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_places"
+                android:layout_width="104dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="330dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Places"
+                android:textColor="@color/colorTextPlaces"
+                android:textSize="30sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_search" />
+
+            <TextView
+                android:id="@+id/tv_add_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add place"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorGreen"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tv_places"
+                app:layout_constraintTop_toTopOf="@id/tv_places" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_places"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_places"
+                tools:listitem="@layout/list_places_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
