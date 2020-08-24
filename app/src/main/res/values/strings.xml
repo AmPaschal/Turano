@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Soil Info</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="search_by_location">Search by location</string>
 </resources>
