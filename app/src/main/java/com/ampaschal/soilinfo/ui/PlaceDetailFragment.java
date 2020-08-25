@@ -35,7 +35,7 @@ public class PlaceDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         @NotNull FragmentPlaceDetailBinding placeDetailBinding = FragmentPlaceDetailBinding.inflate(inflater, container, false);
 
-        rvPlaceDetail = placeDetailBinding.rvLayerDetailList;
+        rvPlaceDetail = placeDetailBinding.rvLayerList;
 
         LinearLayoutManager placesLayoutManager = new LinearLayoutManager(
                 getContext(),

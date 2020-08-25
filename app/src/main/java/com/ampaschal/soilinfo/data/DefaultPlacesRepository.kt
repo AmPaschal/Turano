@@ -61,7 +61,6 @@ class DefaultPlacesRepository: PlacesRepository {
                 val snapshot = dataSnapshot.getValue(Place::class.java)
                 func(snapshot)
             }
-
         })
     }
 
