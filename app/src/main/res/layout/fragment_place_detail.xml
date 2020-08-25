@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
         android:orientation="vertical"
         android:background="@color/colorWhite"
         tools:context=".ui.PlaceDetailFragment">
@@ -33,7 +32,7 @@
             android:id="@+id/rv_layer_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorBackground"
+            android:background="@drawable/bg_layer_detail"
             tools:listitem="@layout/layer_detail_left_list" />
 
     </LinearLayout>
