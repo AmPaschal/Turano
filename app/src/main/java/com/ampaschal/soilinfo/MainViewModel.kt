@@ -13,10 +13,21 @@ class MainViewModel(private val placesRepository: PlacesRepository) : ViewModel(
     private val _places = MutableLiveData<List<PlaceSummary>>()
     val places: LiveData<List<PlaceSummary>> = _places
 
+    private val _currentPlace = MutableLiveData<Place>()
+    val currentPlace: LiveData<Place> = _currentPlace
+
     val soilLayers = mutableListOf<SoilLayer>()
 
     fun getPlacesList() : LiveData<List<PlaceSummary>> {
         return placesRepository.getPlacesList()
+    }
+
+    fun getPlaceById(placeId: String) {
+        placesRepository.getPlaceById(placeId) {
+            it?.let {
+                _currentPlace.value = it
+            }
+        }
     }
 
 

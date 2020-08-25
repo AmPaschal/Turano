@@ -8,4 +8,6 @@ interface PlacesRepository {
     fun addPlace(place: Place)
 
     fun getPlacesList(): MutableLiveData<List<PlaceSummary>>
+
+    fun getPlaceById(placeId: String, func: (place: Place?) -> Unit)
 }

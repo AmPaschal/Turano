@@ -1,9 +1,9 @@
 package com.ampaschal.soilinfo.entities
 
 data class SoilLayer (
-    val layer: Int,
-    val appRes: Double,
-    val thickness: Double,
-    val depth: Double,
-    val description: String
+    val layer: Int = 0,
+    val appRes: Double = 0.0,
+    val thickness: Double = 0.0,
+    val depth: Double = 0.0,
+    val description: String = ""
 )
