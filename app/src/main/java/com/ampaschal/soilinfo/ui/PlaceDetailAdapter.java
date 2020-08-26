@@ -1,4 +1,4 @@
-package com.ampaschal.soilinfo;
+package com.ampaschal.soilinfo.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ampaschal.soilinfo.R;
 import com.ampaschal.soilinfo.data.PlaceSummary;
 import com.ampaschal.soilinfo.entities.SoilLayer;
 
@@ -23,8 +24,14 @@ public class PlaceDetailAdapter extends RecyclerView.Adapter<PlaceDetailAdapter.
     @Override
     public PlaceDetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        View itemView = LayoutInflater.from(context)
-                .inflate(R.layout.fragment_place_detail, parent, false);
+        View itemView;
+        if ((viewType % 2) == 0){
+                itemView = LayoutInflater.from(context)
+                .inflate(R.layout.layer_detail_left_list, parent, false);
+        } else{
+            itemView = LayoutInflater.from(context)
+                    .inflate(R.layout.layer_detail_right_list, parent, false);
+        }
         return new PlaceDetailViewHolder(itemView);
     }
 
