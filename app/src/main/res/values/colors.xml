@@ -12,4 +12,5 @@
     <color name="colorGreen">#00CC99</color>
     <color name="colorTextRecent">#2C2C2C</color>
     <color name="colorTextPlaces">#383838</color>
+    <color name="placesSuggestion">#97ADB6</color>
 </resources>

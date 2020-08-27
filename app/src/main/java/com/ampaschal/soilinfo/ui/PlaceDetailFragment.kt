@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ampaschal.soilinfo.MainViewModel
@@ -34,6 +35,18 @@ class PlaceDetailFragment : Fragment() {
         rvSoilLayers.layoutManager = layersLayoutManager
         rvSoilLayers.adapter = soilLayersAdapter
 
+        mainViewModel.currentPlace.observe(viewLifecycleOwner, Observer {
+            soilLayersAdapter.setData(it.layers)
+        })
+
+        placeDetailBinding.tvCompareDataNext.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
+        })
+
+        placeDetailBinding.tvCompareImageNext.setOnClickListener(View.OnClickListener {
+            findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
+        })
+
         return placeDetailBinding.root
     }
 
@@ -51,5 +64,7 @@ class PlaceDetailFragment : Fragment() {
             }
 
         }
+
     }
+
 }
