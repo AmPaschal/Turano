@@ -39,13 +39,13 @@ class PlaceDetailFragment : Fragment() {
             soilLayersAdapter.setData(it.layers)
         })
 
-        placeDetailBinding.tvCompareDataNext.setOnClickListener(View.OnClickListener {
+        placeDetailBinding.tvCompareDataNext.setOnClickListener {
             findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
-        })
+        }
 
-        placeDetailBinding.tvCompareImageNext.setOnClickListener(View.OnClickListener {
+        placeDetailBinding.tvCompareImageNext.setOnClickListener {
             findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
-        })
+        }
 
         return placeDetailBinding.root
     }
