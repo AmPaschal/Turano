@@ -19,8 +19,9 @@
         android:layout_marginStart="50dp"
         android:paddingBottom="4dp"
         android:paddingTop="10dp"
-        android:paddingEnd="16dp"
+        android:paddingEnd="16dp
         android:paddingStart="100dp"
+
         android:background="@drawable/bg_list_item">
 
         <TextView
