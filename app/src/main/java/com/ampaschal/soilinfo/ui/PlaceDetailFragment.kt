@@ -15,9 +15,10 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class PlaceDetailFragment : Fragment() {
 
-    private val args: PlaceDetailFragmentArgs? by navArgs()
+    private val args: PlaceDetailFragmentArgs by navArgs()
     private lateinit var placeDetailBinding: FragmentPlaceDetailBinding
     private val mainViewModel: MainViewModel by sharedViewModel()
+    private val soilLayersAdapter = SoilLayersAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,14 +31,8 @@ class PlaceDetailFragment : Fragment() {
             context, LinearLayoutManager.VERTICAL, false
         )
 
-        val soilLayersAdapter = SoilLayersAdapter()
-
         rvSoilLayers.layoutManager = layersLayoutManager
         rvSoilLayers.adapter = soilLayersAdapter
-
-        mainViewModel.currentPlace.observe(viewLifecycleOwner, Observer {
-            soilLayersAdapter.setData(it.layers)
-        })
 
         return placeDetailBinding.root
     }
@@ -45,8 +40,15 @@ class PlaceDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        args?.let {
+        args.let {
             placeDetailBinding.tvPlaceName.text = it.place.name
+
+        }
+
+        mainViewModel.getPlaceById(args.place.key){
+            it?.let {place ->
+                soilLayersAdapter.setData(place.layers)
+            }
 
         }
     }

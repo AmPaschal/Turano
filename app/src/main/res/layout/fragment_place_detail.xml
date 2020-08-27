@@ -18,7 +18,7 @@
             android:id="@+id/tv_place_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="37dp"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:text="Oroma-Ekiti"
@@ -32,6 +32,8 @@
             android:id="@+id/rv_layer_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:background="@drawable/bg_layer_detail"
             tools:listitem="@layout/layer_detail_left_list" />
 

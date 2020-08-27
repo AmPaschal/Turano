@@ -1,13 +1,13 @@
 package com.ampaschal.soilinfo.data
 
-import androidx.lifecycle.MutableLiveData
 import com.ampaschal.soilinfo.entities.Place
 
 interface PlacesRepository {
 
     fun addPlace(place: Place)
 
-    fun getPlacesList(): MutableLiveData<List<PlaceSummary>>
+    fun getPlacesList(func: (List<PlaceSummary>) -> Unit)
 
     fun getPlaceById(placeId: String, func: (place: Place?) -> Unit)
+    fun getBuildState(buildVersion: String, func: (state: Boolean) -> Unit)
 }

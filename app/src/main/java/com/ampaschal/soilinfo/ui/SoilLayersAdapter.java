@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ampaschal.soilinfo.R;
-import com.ampaschal.soilinfo.data.PlaceSummary;
 import com.ampaschal.soilinfo.entities.SoilLayer;
 
 import java.util.List;
@@ -18,6 +17,8 @@ import java.util.List;
 public class SoilLayersAdapter extends RecyclerView.Adapter<SoilLayersAdapter.SoilLayerViewHolder> {
 
     private List<SoilLayer> soilLayers;
+
+    private int position = 1;
 
     public SoilLayersAdapter() {
 
@@ -27,8 +28,11 @@ public class SoilLayersAdapter extends RecyclerView.Adapter<SoilLayersAdapter.So
     @Override
     public SoilLayerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
+
+        int layoutType = position % 2 == 1 ? R.layout.layer_detail_left_list : R.layout.layer_detail_right_list;
         View itemView = LayoutInflater.from(context)
-                .inflate(R.layout.layer_detail_right_list, parent, false);
+                .inflate(layoutType, parent, false);
+        position++;
         return new SoilLayerViewHolder(itemView);
     }
 
@@ -68,7 +72,7 @@ public class SoilLayersAdapter extends RecyclerView.Adapter<SoilLayersAdapter.So
         }
 
         public void bind(final SoilLayer layer){
-            tvLayerNo.setText(String.valueOf(layer.getLayer()));
+            tvLayerNo.setText("Layer " + layer.getLayer());
             tvAppRes.setText(String.valueOf(layer.getAppRes()));
             tvThickness.setText(String.valueOf(layer.getThickness()));
             tvDepth.setText(String.valueOf(layer.getDepth()));

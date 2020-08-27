@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +19,6 @@ import java.util.*
 
 class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
     lateinit var rvPlaces: RecyclerView
-    var places: ArrayList<PlaceSummary>? = null
     private val mainViewModel: MainViewModel by sharedViewModel()
 
     override fun onCreateView(
@@ -42,7 +42,7 @@ class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
         rvPlaces.layoutManager = placesLayoutManager
         rvPlaces.adapter = placesAdapter
 
-        mainViewModel.getPlacesList().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+        mainViewModel.getSortedPlacesList().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             placesAdapter.setData(it)
         })
 
@@ -52,12 +52,17 @@ class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
             startActivity(intent)
         }
 
+        val etSearch = placesBinding.etSearch
+        etSearch.addTextChangedListener {
+            mainViewModel.getSortedPlacesList(it.toString()).observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+                placesAdapter.setData(it)
+            })
+        }
+
         return placesBinding.root
     }
 
     override fun onPlaceClicked(place: PlaceSummary) {
-        mainViewModel.getPlaceById(place.key)
-
         val action =
             PlacesFragmentDirections.actionPlacesFragmentToPlaceDetailFragment(place)
         findNavController().navigate(action)
