@@ -27,7 +27,7 @@ class MainViewModel(private val placesRepository: PlacesRepository) : ViewModel(
         }
     }
 
-    fun getSortedPlacesList(searchText: String = "") : LiveData<List<PlaceSummary>> {
+    fun getFilteredPlacesList(searchText: String = "") : LiveData<List<PlaceSummary>> {
         return _places.map { places ->
             places.filter {
                 it.name.toLowerCase().contains(searchText.toLowerCase())

@@ -15,7 +15,6 @@ import com.ampaschal.soilinfo.data.PlaceSummary
 import com.ampaschal.soilinfo.databinding.FragmentPlacesBinding
 import com.ampaschal.soilinfo.interfaces.OnPlacesListItemInteractionListener
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import java.util.*
 
 class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
     lateinit var rvPlaces: RecyclerView
@@ -42,7 +41,7 @@ class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
         rvPlaces.layoutManager = placesLayoutManager
         rvPlaces.adapter = placesAdapter
 
-        mainViewModel.getSortedPlacesList().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+        mainViewModel.getFilteredPlacesList().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             placesAdapter.setData(it)
         })
 
@@ -54,7 +53,7 @@ class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
 
         val etSearch = placesBinding.etSearch
         etSearch.addTextChangedListener {
-            mainViewModel.getSortedPlacesList(it.toString()).observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            mainViewModel.getFilteredPlacesList(it.toString()).observe(viewLifecycleOwner, androidx.lifecycle.Observer {
                 placesAdapter.setData(it)
             })
         }
