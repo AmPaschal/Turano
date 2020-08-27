@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,11 +15,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="end"
+        android:gravity="start"
         android:layout_marginStart="50dp"
-        android:paddingBottom="10dp"
+        android:paddingBottom="4dp"
         android:paddingTop="10dp"
-        android:paddingEnd="16dp"
+        android:paddingEnd="16dp
+        android:paddingStart="100dp"
+
         android:background="@drawable/bg_list_item">
 
         <TextView
@@ -112,45 +114,52 @@
             android:id="@+id/tv_description_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Top Soil"
             android:textSize="14sp"
             android:textColor="@color/colorGreen"
             android:fontFamily="@font/poppins"
             android:textFontWeight="600"
             android:layout_toEndOf="@id/tv_description"
-            android:layout_alignBottom="@id/tv_description" />
+            android:layout_alignTop="@id/tv_description" />
     </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/layer_image_layout"
-        android:layout_width="148dp"
-        android:layout_height="155dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
+    
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_centerVertical="true"
         android:layout_marginStart="6dp"
-        android:layout_gravity="start"
-        android:background="@drawable/bg_layer_detail_image"
-        android:orientation="vertical">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="12dp">
 
-        <TextView
-            android:id="@+id/tv_layer_no"
+        <FrameLayout
+            android:id="@+id/layer_image_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorGreen"
-            android:paddingTop="3dp"
-            android:paddingBottom="3dp"
-            android:gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textStyle="normal"
-            android:text="Layer 1"
-            android:textColor="@color/colorWhite"
-            android:fontFamily="@font/poppins"
-            android:textFontWeight="600" />
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_layer_detail_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_layer_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGreen"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:text="Layer 1"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="@font/poppins"
+                android:textFontWeight="600" />
 
 
 
-    </FrameLayout>
+        </FrameLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
-</FrameLayout>
+
+
+</RelativeLayout>

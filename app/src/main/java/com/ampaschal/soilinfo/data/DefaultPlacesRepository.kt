@@ -13,19 +13,11 @@ class DefaultPlacesRepository: PlacesRepository {
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val placesRef = database.getReference("places")
-    private val _placesList: MutableLiveData<List<PlaceSummary>> = MutableLiveData()
 
-    init {
-        getAllPlaces()
-    }
 
-    override fun getPlacesList(): MutableLiveData<List<PlaceSummary>> {
-        return _placesList
-    }
+    override fun getPlacesList(func: (List<PlaceSummary>) -> Unit) {
 
-    private fun getAllPlaces() {
-
-        placesRef.child("titles").addValueEventListener(object : ValueEventListener{
+        placesRef.child("titles").orderByChild("name").addValueEventListener(object : ValueEventListener{
             override fun onCancelled(databaseError: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -36,7 +28,7 @@ class DefaultPlacesRepository: PlacesRepository {
                         snapShot
                     )
                 }
-                _placesList.value = places.filterNotNull()
+                func(places.filterNotNull())
             }
 
         })
@@ -81,6 +73,23 @@ class DefaultPlacesRepository: PlacesRepository {
 
         placesRef.updateChildren(placesMap)
 
+    }
+
+    override fun getBuildState(buildVersion: String, func: (state: Boolean) -> Unit) {
+        val buildRef = database.getReference("builds").child(buildVersion)
+
+        buildRef.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val buildState = snapshot.getValue(Boolean::class.java) ?: false
+                func(buildState)
+
+            }
+
+        })
     }
 
 }

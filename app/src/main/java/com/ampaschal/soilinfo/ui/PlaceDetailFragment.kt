@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ampaschal.soilinfo.MainViewModel
@@ -15,9 +16,10 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class PlaceDetailFragment : Fragment() {
 
-    private val args: PlaceDetailFragmentArgs? by navArgs()
+    private val args: PlaceDetailFragmentArgs by navArgs()
     private lateinit var placeDetailBinding: FragmentPlaceDetailBinding
     private val mainViewModel: MainViewModel by sharedViewModel()
+    private val soilLayersAdapter = SoilLayersAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +32,6 @@ class PlaceDetailFragment : Fragment() {
             context, LinearLayoutManager.VERTICAL, false
         )
 
-        val soilLayersAdapter = SoilLayersAdapter()
-
         rvSoilLayers.layoutManager = layersLayoutManager
         rvSoilLayers.adapter = soilLayersAdapter
 
@@ -39,15 +39,32 @@ class PlaceDetailFragment : Fragment() {
             soilLayersAdapter.setData(it.layers)
         })
 
+        placeDetailBinding.tvCompareDataNext.setOnClickListener {
+            findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
+        }
+
+        placeDetailBinding.tvCompareImageNext.setOnClickListener {
+            findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
+        }
+
         return placeDetailBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        args?.let {
+        args.let {
             placeDetailBinding.tvPlaceName.text = it.place.name
 
         }
+
+        mainViewModel.getPlaceById(args.place.key){
+            it?.let {place ->
+                soilLayersAdapter.setData(place.layers)
+            }
+
+        }
+
     }
+
 }

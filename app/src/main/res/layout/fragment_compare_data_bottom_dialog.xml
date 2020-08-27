@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:padding="12dp"
+    tools:context=".ui.CompareDataBottomDialogFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    
+    <FrameLayout
+        android:id="@+id/layout_compare_data_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:weightSum="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_search"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="14dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:visibility="invisible"
+            android:hint="@string/search_by_location"
+            android:textColorHint="@color/colorHint"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_compare_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="95"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="Compare Data With"
+            android:textColor="@color/colorTextTitle"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_search"
+            android:layout_width="50dp"
+            android:layout_height="51dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center_vertical"
+            app:contentPadding="10dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="50dp"
+            android:onClick="onClickSearch"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:layout_constraintStart_toEndOf="@+id/tv_compare_title">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_search"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    </FrameLayout>
+
+
+
+    <TextView
+        android:id="@+id/tv_suggested_areas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suggested Areas"
+        android:textSize="16sp"
+        android:textColor="@color/placesSuggestion"
+        android:layout_marginTop="21dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_compare_data_heading"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_suggested_areas"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/list_places_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
