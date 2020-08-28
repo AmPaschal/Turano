@@ -8,6 +8,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.util.*
 
 class DefaultPlacesRepository: PlacesRepository {
 
@@ -52,8 +53,15 @@ class DefaultPlacesRepository: PlacesRepository {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val snapshot = dataSnapshot.getValue(Place::class.java)
                 func(snapshot)
+                updatePlaceSummaryWithTime(placeId)
             }
         })
+    }
+
+    private fun updatePlaceSummaryWithTime(placeId: String) {
+        val placeRef = placesRef.child("titles").child(placeId)
+
+        placeRef.child("lastViewed").setValue(Date())
     }
 
     override fun addPlace(place: Place) {
