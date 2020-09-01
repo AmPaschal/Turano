@@ -7,6 +7,11 @@
 
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,97 +34,48 @@
         
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:orientation="horizontal"
             android:layout_marginTop="54dp"
             android:background="@drawable/bg_compare_data"
             android:weightSum="100">
-            
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+
+            <TextView
+                android:id="@+id/tv_default_layer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:weightSum="100"
-                android:background="@drawable/bg_compare_no_radius"
-                android:orientation="horizontal">
-                
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-                    android:text="Oroma-Ekiti"
-                    android:textColor="@color/colorGreen"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="20sp"
-                    android:textFontWeight="600"
-                    android:gravity="center"/>
+                android:text="Oroma-Ekiti"
+                android:textColor="@color/colorGreen"
+                android:fontFamily="@font/poppins"
+                android:textSize="20sp"
+                android:textFontWeight="600"
+                android:gravity="center"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-                    android:text="Oroma-Ekiti"
-                    android:textColor="@color/colorRed"
-                    android:textSize="20sp"
-                    android:textFontWeight="600"
-                    android:gravity="center"/>
-                
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            <TextView
+                android:id="@+id/tv_compare_layer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:weightSum="100"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="80"
-                    android:text="Layer 1"
-                    android:gravity="center"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorTextTitle"
-                    android:textFontWeight="600"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:weightSum="100"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="50"
-                        android:text="Next"
-                        android:gravity="bottom|center"
-                        android:textColor="@color/colorGreen"
-                        android:fontFamily="@font/poppins"
-                        android:textSize="12sp"
-                        android:textFontWeight="600"/>
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="50"
-                        android:gravity="top"
-                        android:src="@drawable/ic_baseline_arrow_right_alt_24"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+                android:text="Oroma-Ekiti"
+                android:textColor="@color/colorRed"
+                android:textSize="20sp"
+                android:textFontWeight="600"
+                android:gravity="center"/>
             
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_compare_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
             tools:listitem="@layout/compare_list_item"/>
     </LinearLayout>
+    </ScrollView>
 
 </layout>
