@@ -10,4 +10,6 @@ interface PlacesRepository {
 
     fun getPlaceById(placeId: String, func: (place: Place?) -> Unit)
     fun getBuildState(buildVersion: String, func: (state: Boolean) -> Unit)
+    fun getRecentPlaces(): List<PlaceSummary>
+    fun addRecentPlace(placeSummary: PlaceSummary)
 }

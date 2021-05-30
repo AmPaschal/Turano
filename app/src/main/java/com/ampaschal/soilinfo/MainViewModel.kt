@@ -58,4 +58,11 @@ class MainViewModel(private val placesRepository: PlacesRepository) : ViewModel(
         }
     }
 
+    fun addRecentPlace(placeSummary: PlaceSummary) {
+        placesRepository.addRecentPlace(placeSummary)
+    }
+
+    fun getRecentPlaces() : List<PlaceSummary> {
+        return placesRepository.getRecentPlaces()
+    }
 }

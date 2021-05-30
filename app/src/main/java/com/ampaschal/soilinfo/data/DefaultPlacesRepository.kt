@@ -100,4 +100,14 @@ class DefaultPlacesRepository: PlacesRepository {
         })
     }
 
+    override fun getRecentPlaces(): List<PlaceSummary> {
+        val recentPlaces = LocalStorage.recentPlaces
+
+        return recentPlaces.entries.sortedByDescending { it.value }.associate { it.toPair() }.keys.toList().take(5)
+    }
+
+    override fun addRecentPlace(placeSummary: PlaceSummary) {
+        LocalStorage.recentPlaces[placeSummary] = Date()
+    }
+
 }

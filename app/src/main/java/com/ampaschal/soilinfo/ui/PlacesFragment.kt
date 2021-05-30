@@ -61,9 +61,10 @@ class PlacesFragment : Fragment(), OnPlacesListItemInteractionListener {
         return placesBinding.root
     }
 
-    override fun onPlaceClicked(place: PlaceSummary) {
+    override fun onPlaceClicked(placeSummary: PlaceSummary) {
+        mainViewModel.addRecentPlace(placeSummary)
         val action =
-            PlacesFragmentDirections.actionPlacesFragmentToPlaceDetailFragment(place)
+            PlacesFragmentDirections.actionPlacesFragmentToPlaceDetailFragment(placeSummary)
         findNavController().navigate(action)
     }
 }
