@@ -46,5 +46,22 @@
         <argument
             android:name="place"
             app:argType="com.ampaschal.soilinfo.data.PlaceSummary" />
+        <action
+            android:id="@+id/action_CompareDataBottomDialogFragment_to_compareFragment"
+            app:destination="@id/compareFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/compareFragment"
+        android:name="com.ampaschal.soilinfo.ui.CompareFragment"
+        android:label="CompareFragment"
+        tools:layout="@layout/fragment_compare">
+
+        <argument
+            android:name="defaultPlace"
+            app:argType="com.ampaschal.soilinfo.entities.Place" />
+        <argument
+            android:name="comparePlace"
+            app:argType="com.ampaschal.soilinfo.data.PlaceSummary" />
+
+    </fragment>
 </navigation>

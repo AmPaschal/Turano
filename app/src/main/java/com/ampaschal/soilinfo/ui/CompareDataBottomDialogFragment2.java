@@ -8,19 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
 
-import com.ampaschal.soilinfo.R;
 import com.ampaschal.soilinfo.databinding.FragmentCompareDataBottomDialogBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CompareDataBottomDialogFragment#newInstance} factory method to
+ * Use the {@link CompareDataBottomDialogFragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CompareDataBottomDialogFragment extends BottomSheetDialogFragment {
+public class CompareDataBottomDialogFragment2 extends BottomSheetDialogFragment {
 
     CardView searchImage;
 
@@ -33,7 +30,7 @@ public class CompareDataBottomDialogFragment extends BottomSheetDialogFragment {
     private String mParam1;
     private String mParam2;
 
-    public CompareDataBottomDialogFragment() {
+    public CompareDataBottomDialogFragment2() {
         // Required empty public constructor
     }
 
@@ -46,8 +43,8 @@ public class CompareDataBottomDialogFragment extends BottomSheetDialogFragment {
      * @return A new instance of fragment CompareDataFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CompareDataBottomDialogFragment newInstance(String param1, String param2) {
-        CompareDataBottomDialogFragment fragment = new CompareDataBottomDialogFragment();
+    public static CompareDataBottomDialogFragment2 newInstance(String param1, String param2) {
+        CompareDataBottomDialogFragment2 fragment = new CompareDataBottomDialogFragment2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

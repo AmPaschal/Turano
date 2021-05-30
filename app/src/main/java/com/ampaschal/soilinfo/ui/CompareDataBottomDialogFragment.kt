@@ -50,11 +50,11 @@ class CompareDataBottomDialogFragment : BottomSheetDialogFragment(),
         searchImage.setOnClickListener {
             compareDataBottomDialogBinding.imageSearch.visibility = View.INVISIBLE
             compareDataBottomDialogBinding.tvCompareTitle.visibility = View.INVISIBLE
-            compareDataBottomDialogBinding.etCompareSearch.visibility = View.VISIBLE
+            compareDataBottomDialogBinding.etSearch.visibility = View.VISIBLE
         }
 
         val compareAdapter = CompareDataBottomDialogAdapter(this)
-        etCompareSearch = compareDataBottomDialogBinding.etCompareSearch
+        etCompareSearch = compareDataBottomDialogBinding.etSearch
         etCompareSearch.addTextChangedListener { it ->
             mainViewModel.getFilteredPlacesList(it.toString())
                 .observe(viewLifecycleOwner, androidx.lifecycle.Observer {
@@ -80,9 +80,14 @@ class CompareDataBottomDialogFragment : BottomSheetDialogFragment(),
         return compareDataBottomDialogBinding.root
     }
 
-    override fun onPlaceClicked(place: PlaceSummary) {
-        val action = CompareDataBottomDialogFragmentDirections.actionCompareDataBottomDialogFragmentToCompareFragment(args.place, place)
-        findNavController().navigate(action)
+    override fun onPlaceClicked(comparePlace: PlaceSummary) {
+        mainViewModel.getPlaceById(args.place.key) {
+            it?.let { place ->
+                val action = CompareDataBottomDialogFragmentDirections.actionCompareDataBottomDialogFragmentToCompareFragment(place, comparePlace)
+                findNavController().navigate(action)
+            }
+        }
+
     }
 
 }

@@ -40,11 +40,13 @@ class PlaceDetailFragment : Fragment() {
         })
 
         placeDetailBinding.tvCompareDataNext.setOnClickListener {
-            findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
+            val action = PlaceDetailFragmentDirections.actionPlaceDetailFragmentToCompareDataBottomDialogFragment(args.place)
+            findNavController().navigate(action)
         }
 
         placeDetailBinding.tvCompareImageNext.setOnClickListener {
-            findNavController().navigate(R.id.action_placeDetailFragment_to_CompareDataBottomDialogFragment)
+            val action = PlaceDetailFragmentDirections.actionPlaceDetailFragmentToCompareDataBottomDialogFragment(args.place)
+            findNavController().navigate(action)
         }
 
         return placeDetailBinding.root
